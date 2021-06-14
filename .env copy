@@ -1,0 +1,18 @@
+# このdockerプロジェクトはシンプルなLAMP構成とcomposerの実行をコンテナ立ち上げに行うものです。
+
+# アプリケーション設定
+APP_PATH=
+
+
+# mysqlバージョン
+MYSQL_VERSION=5.7
+MYSQL_PORT=3306
+MYSQL_NAME=db1
+
+# PHPバージョン
+PHP_VERSION=7.4
+PHP_PORT=9000
+
+
+# apacheバージョン
+APATCH_PORT=80
