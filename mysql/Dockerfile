@@ -1,4 +1,5 @@
-FROM mysql:5.7
+ARG MYSQL_VERSION
+FROM --platform=linux/x86_64 mysql:${MYSQL_VERSION}
 
 # 日本語設定
 RUN apt-get update && \
@@ -9,5 +10,5 @@ RUN apt-get update && \
 ENV LC_ALL ja_JP.UTF-8
 
 # MySQL設定ファイルをイメージ内にコピー
-ADD ./docker/mysql/conf/my.cnf /etc/mysql/my.cnf
-ADD ./docker/mysql/init/1_ddl.sql /docker-entrypoint-initdb.d/1_ddl.sql
+ADD ./mysql/conf/my.cnf /etc/mysql/my.cnf
+ADD ./mysql/init/1_ddl.sql /docker-entrypoint-initdb.d/1_ddl.sql
