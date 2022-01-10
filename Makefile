@@ -18,7 +18,6 @@ laravel-install: ## コンテナ内に直接laravelインストール(最新版)
 init: ## コンテナ初期設定(既存プロジェクトに使う場合)
 	docker compose up -d --build
 	docker compose exec web composer install
-	docker compose exec web cp .env.example .env
 	docker compose exec web php artisan key:generate
 	docker compose exec web php artisan storage:link
 	docker compose exec web chmod -R 777 storage bootstrap/cache
@@ -72,14 +71,6 @@ log-web: ##
 log-web-watch: ## 
 	docker compose logs --follow web
 
-.PHONY: log-web
-log-web: ## 
-	docker compose logs web
-
-.PHONY: log-web-watch
-log-web-watch: ## 
-	docker compose logs --follow web
-
 .PHONY: log-db
 log-db: ## 
 	docker compose logs db
@@ -87,10 +78,6 @@ log-db: ##
 .PHONY: log-db-watch
 log-db-watch: ## 
 	docker compose logs --follow db
-
-.PHONY: web
-web: ## 
-	docker compose exec web ash
 
 .PHONY: web
 web: ## 
