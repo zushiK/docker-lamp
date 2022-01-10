@@ -1,5 +1,6 @@
 ARG PHP_VERSION
 FROM php:${PHP_VERSION}-apache
+SHELL ["/bin/bash", "-c"]
 
 # ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 # RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
@@ -15,3 +16,9 @@ COPY ./apache/php/php.ini /usr/local/etc/php/php.ini
 COPY ./apache/httpd.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite 
+
+# node
+RUN apt-get install -y nodejs npm && npm install n -g && n 14.15.3
+
+# composer
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer

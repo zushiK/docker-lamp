@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  apache:
+  web:
     container_name: ${APATCH_CONTAINER_NAME}
     build:
       context: .
