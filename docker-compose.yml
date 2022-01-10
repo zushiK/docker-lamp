@@ -1,31 +1,6 @@
 version: "3"
+
 services:
-  # php:
-  #   container_name: php
-  #   build:
-  #     context: .
-  #     dockerfile: docker/php/Dockerfile
-  #   ports:
-  #     - ${PHP_PORT}:9000
-  #   volumes:
-  #     - ${APP_PATH}:/var/www
-  # composer:
-  #   restart: "no"
-  #   image: library/composer:1.10.6
-  #   command: install
-  #   volumes:
-  #     - ${APP_PATH}:/app
-  # nginx:
-  #   container_name: nginx
-  #   build:
-  #     context: .
-  #     dockerfile: docker/nginx/Dockerfile
-  #   ports:
-  #     - 8080:80
-  #   volumes:
-  #     - ${APP_PATH}/public:/var/www/public
-  #   depends_on:
-  #     - php
   apache:
     container_name: apache
     build:
