@@ -10,15 +10,13 @@ SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update \
   && apt-get install -y libonig-dev libpq-dev vim\
+  && apt-get insatall -y zip unzip
   && docker-php-ext-install pdo_mysql mbstring
 
 COPY ./apache/php/php.ini /usr/local/etc/php/php.ini
 COPY ./apache/httpd.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite 
-
-# node
-RUN apt-get install -y nodejs npm && npm install n -g && n 14.15.3
 
 # composer
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
