@@ -1,3 +1,4 @@
+# https://hub.docker.com/_/php/tags?page=1&name=-apache
 ARG PHP_VERSION
 FROM php:${PHP_VERSION}-apache
 SHELL ["/bin/bash", "-c"]
@@ -10,7 +11,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update \
   && apt-get install -y libonig-dev libpq-dev vim\
-  && apt-get insatall -y zip unzip
+  && apt-get install -y zip unzip \
   && docker-php-ext-install pdo_mysql mbstring
 
 COPY ./apache/php/php.ini /usr/local/etc/php/php.ini

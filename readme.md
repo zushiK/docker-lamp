@@ -1,30 +1,21 @@
-# laravel向けDocker環境
+# LAMP環境 Docker
 
-## 既存プロジェクト環境構築の流れ
+## 環境構築の流れ
 
-**プロジェクトのリポジトリのクローン**
-
-`$ git clone https://github.com/laravel/laravel.git`
-
-**laravelのenvファイル作成**
-
-``` .envの中身を変更
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=db1
-DB_USERNAME=root
-DB_PASSWORD=root
+```
+$ cp .env.copy .env
+$ make up
 ```
 
-**dockerのenvファイルをコピー**
+## プロジェクトのデフォルト設定値
 
-`$ cp .env.copy .env`
+### Apache
+APATCH_PORT=80
 
-**APP_PATHの入力(フルパスで入れてください。)**
+### Mysql
+DB_PORT=3306
+DATABASE_NAME=db1
+DB_USERNAME=root
+DB_PASSWORD=root
 
-`APP_PATH=/Users/zushi/docker/temp-php-project`
-
-**コンテナ立ち上げと初期化**
-
-`$ make init`
+## dockerコマンド集

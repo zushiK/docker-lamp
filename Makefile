@@ -199,12 +199,3 @@ ide-helper: ##
 	docker compose exec web php artisan ide-helper:generate
 	docker compose exec web php artisan ide-helper:meta
 	docker compose exec web php artisan ide-helper:models --nowrite
-
-.PHONY: wml-initialize
-initialize: ## wml ecサーバー 初期設定
-	docker-compose exec web php artisan migrate
-	docker-compose exec web php artisan db:seed --class InformationSeeder
-	docker-compose exec web php artisan command:adjust-category
-	docker-compose exec web php artisan db:seed --class InformationSeeder
-	docker-compose exec web php artisan db:seed --class MailTemplateSeed
-	docker-compose exec web php artisan command:get-exchange-usd-to-jpy
