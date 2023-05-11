@@ -44,5 +44,4 @@ services:
     environment:
       MYSQL_USERNAME: user
       MYSQL_ROOT_PASSWORD: password
-      PMA_HOST: mysql
--apche
+      PMA_HOST: mysql-apche
