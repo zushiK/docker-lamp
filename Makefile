@@ -79,6 +79,10 @@ log-db: ##
 log-db-watch: ## 
 	docker compose logs --follow db
 
+.PHONY: bash
+bash: ## 
+	docker compose exec apache bash
+
 .PHONY: web
 web: ## 
 	docker compose exec web bash
