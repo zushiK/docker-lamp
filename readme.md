@@ -4,18 +4,27 @@
 
 ```
 $ cp .env.copy .env
+
+# アプリケーションのフルパスを埋める
+# 各種バージョンを決める
+
 $ make up
 ```
 
 ## プロジェクトのデフォルト設定値
 
 ### Apache
-APATCH_PORT=80
+localhost
 
+### PHPMYADMIN
+localhost:8081
+
+### Mail Catcher
+localhost:1080
 ### Mysql
+```
 DB_PORT=3306
 DATABASE_NAME=db1
 DB_USERNAME=root
 DB_PASSWORD=root
-
-## dockerコマンド集
+```

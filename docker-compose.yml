@@ -35,13 +35,22 @@ services:
       - ./mysql/sql:/docker-entrypoint-initdb.d
 
   phpmyadmin:
-    container_name: ${PROJECT_NAME}-pma
     image: phpmyadmin/phpmyadmin
+    container_name: ${PROJECT_NAME}-pma
     links:
       - mysql:mysql
     ports:
-      - ${FORWARD_PMA_PORT:-8081}:8081
+      - ${FORWARD_PMA_PORT:-8081}:80
+    volumes:
+      - ./docker/phpmyadmin/sessions:/sessions
     environment:
-      MYSQL_USERNAME: user
-      MYSQL_ROOT_PASSWORD: password
-      PMA_HOST: mysql-apche
+      PMA_ARBITRARY: 1
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    container_name: ${PROJECT_NAME}-mailer
+    ports:
+      - 1080:1080
