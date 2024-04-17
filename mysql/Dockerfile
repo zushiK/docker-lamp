@@ -1,6 +1,7 @@
 ARG MYSQL_VERSION
 FROM mysql:${MYSQL_VERSION}-debian
 
+RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 467B942D3A79BD29
 RUN apt-get update
 RUN apt-get -y install locales-all
 
